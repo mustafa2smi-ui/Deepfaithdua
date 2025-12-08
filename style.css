@@ -1,0 +1,21 @@
+/* style.css */
+:root{--primary:#0077ff;--bg:#f1f8ff;--card:#ffffff}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#111}
+.site-header{display:flex;align-items:center;gap:12px;padding:12px;background:linear-gradient(90deg,var(--primary),#00b3ff);color:#fff;position:sticky;top:0;z-index:10}
+.site-header .menu{font-size:20px}
+.gallery{display:flex;flex-wrap:wrap;gap:10px;padding:12px;justify-content:center}
+.card{width:47%;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.08);text-align:center}
+.card img{width:100%;height:180px;object-fit:cover;display:block}
+.card-title{padding:8px;font-weight:600}
+.card-count{padding-bottom:10px;font-size:12px;color:#666}
+.site-footer{text-align:center;padding:12px;font-size:13px;color:#333;background:#eaf6ff}
+.viewer{display:flex;align-items:center;justify-content:center;padding:10px;position:relative;background:#000}
+.viewer img{max-width:100%;height:auto;max-height:70vh;display:block}
+.nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.4);border:none;color:#fff;padding:10px;border-radius:50%}
+#prev{left:8px} #next{right:8px}
+.info{padding:12px}
+.info h2{margin:8px 0 6px;font-size:18px}
+.info p{margin:6px 0;color:#222;line-height:1.45}
+.actions{display:flex;gap:8px;margin-top:10px}
+.actions button, .actions a{flex:1;padding:10px;border-radius:8px;border:none;text-decoration:none;text-align:center;background:var(--primary);color:#fff;font-weight:600}
+@media(min-width:700px){.card{width:30%}}
