@@ -1,0 +1,49 @@
+<!-- dua.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dua — Deep Faith Dua Gallery</title>
+
+  <!-- Default (will be replaced by JS for in-page sharing) -->
+  <meta property="og:title" content="Deep Faith Dua Gallery">
+  <meta property="og:description" content="Beautiful Duas">
+  <meta property="og:image" content="">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="back" href="index.html">← Back</a>
+    <h1 id="pageTitle">Dua</h1>
+  </header>
+
+  <section class="viewer">
+    <button id="prev" class="nav-btn">❮</button>
+    <img id="mainImg" src="" alt="" loading="lazy">
+    <button id="next" class="nav-btn">❯</button>
+  </section>
+
+  <section class="info" id="info">
+    <h2 id="duaTitle"></h2>
+
+    <p><strong>English:</strong> <span id="descEn"></span></p>
+    <p><strong>Hindi:</strong> <span id="descHi"></span></p>
+    <p><strong>Urdu:</strong> <span id="descUr"></span></p>
+    <p><strong>Arabic:</strong> <span id="descAr" style="direction:rtl"></span></p>
+
+    <p id="explainEn"></p>
+
+    <div class="actions">
+      <button id="shareBtn">Share</button>
+      <a id="downloadBtn" download>Download</a>
+      <a id="openPage" target="_blank">Open image</a>
+    </div>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
