@@ -1,4 +1,4 @@
-/*
+
 // script.js
 let index = 0;
 const params = new URLSearchParams(location.search);
@@ -52,7 +52,7 @@ function render() {
 
 document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };
 document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };
-/*
+
 // Touch swipe
 let startX = 0;
 document.querySelector('.viewer').addEventListener('touchstart', e=> startX = e.touches[0].clientX);
@@ -61,7 +61,7 @@ document.querySelector('.viewer').addEventListener('touchend', e=>{
   if(endX < startX - 40) document.getElementById('next').click();
   if(endX > startX + 40) document.getElementById('prev').click();
 });
-*
+/*
 let startX = 0;
 let startY = 0;
 
@@ -83,6 +83,7 @@ modalImg.addEventListener("touchend", (e) => {
         if (diffX > 50) showPrev();
     }
 });
+*/
 // Share button: use Web Share API if available (mobile)
 document.getElementById('shareBtn').onclick = async () => {
   const item = morningDuas[index];
@@ -107,10 +108,10 @@ document.getElementById('shareBtn').onclick = async () => {
 };
 
 render();
-*/
+
 
 // ============= Dua Viewer Script (Universal for all Categories) =============
-
+/*
 let index = 0;
 const category = localStorage.getItem("selectedCategory") || "Morning Dua";
 
@@ -240,3 +241,4 @@ document.getElementById('shareBtn').onclick = async () => {
 };
 
 render();
+*/
