@@ -3,7 +3,7 @@ const morningDuas = [
   {
     id: "md1",
     slug: "morning-001",
-    img: "images/morning/md1.jpg",
+    img: "dua1.jpg",
     title: {
       en: "Morning Dua — Gratitude & Protection",
       hi: "सुबह की दुआ — शुक्रगुज़ारी और सुरक्षा",
@@ -26,7 +26,7 @@ const morningDuas = [
   {
     id: "md2",
     slug: "morning-002",
-    img: "images/morning/md2.jpg",
+    img: "dua2.jpg",
     title: {
       en: "Morning Blessing Dua",
       hi: "सुबह की बरकत की दुआ",
@@ -49,7 +49,7 @@ const morningDuas = [
   {
     id: "md3",
     slug: "morning-003",
-    img: "images/morning/md3.jpg",
+    img: "dua3.jpg",
     title: {
       en: "Protection Dua (Morning)",
       hi: "सुरक्षा की दुआ (सुबह)",
