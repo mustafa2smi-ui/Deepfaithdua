@@ -51,7 +51,7 @@ function render() {
 
 document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };
 document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };
-
+/*
 // Touch swipe
 let startX = 0;
 document.querySelector('.viewer').addEventListener('touchstart', e=> startX = e.touches[0].clientX);
@@ -60,7 +60,28 @@ document.querySelector('.viewer').addEventListener('touchend', e=>{
   if(endX < startX - 40) document.getElementById('next').click();
   if(endX > startX + 40) document.getElementById('prev').click();
 });
+*/
+let startX = 0;
+let startY = 0;
 
+modalImg.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+
+modalImg.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+    let endY = e.changedTouches[0].clientY;
+
+    let diffX = endX - startX;
+    let diffY = endY - startY;
+
+    // Swipe only when horizontal movement is bigger
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < -50) showNext();
+        if (diffX > 50) showPrev();
+    }
+});
 // Share button: use Web Share API if available (mobile)
 document.getElementById('shareBtn').onclick = async () => {
   const item = morningDuas[index];
