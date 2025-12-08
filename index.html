@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Morning Dua — Deep Faith Dua Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Morning Duas in Arabic, Hindi, Urdu and English — Deep Faith Dua Gallery">
+</head>
+<body>
+  <header class="site-header">
+    <div class="menu">☰</div>
+    <h1>Deep Faith — Morning Duas</h1>
+  </header>
+
+  <main class="gallery" id="gallery"></main>
+
+  <footer class="site-footer">
+    © 2025 Deep Faith Dua Gallery — <a href="privacy.html">Legal</a>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const g = document.getElementById('gallery');
+    morningDuas.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <a href="dua.html?id=${item.id}" class="card-link">
+          <img src="${item.img}" loading="lazy" alt="${item.title.en}">
+          <div class="card-title">${item.title.en}</div>
+          <div class="card-count">English • Hindi • Urdu • Arabic</div>
+        </a>`;
+      g.appendChild(card);
+    });
+  </script>
+</body>
+</html>
