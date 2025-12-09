@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Viewer — Deep Faith Dua Gallery</title>
+  <link rel="stylesheet" href="style.css"> 
+  <style>
+    /* basic CSS to make viewer full screen */
+    body, html { margin: 0; padding: 0; height: 100%; background: #000; }
+    #fullViewer {
+      display: flex; align-items: center; justify-content: center; height: 100vh;
+      position: relative;
+    }
+    #fullImg {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+    }
+    .nav-btn { /* style from dua.html's nav buttons */
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+      /* Add styling for large, clear buttons */
+    }
+    #prev-img { left: 10px; }
+    #next-img { right: 10px; }
+  </style>
+</head>
+<body>
+  <div id="fullViewer">
+    <button id="prev-img" class="nav-btn">❮</button>
+    <img id="fullImg" src="" alt="Dua Image" loading="eager">
+    <button id="next-img" class="nav-btn">❯</button>
+  </div>
+  
+  <script src="data.js"></script>
+  <script>
+    // यह स्क्रिप्ट लगभग वही लॉजिक उपयोग करेगी जो script.js में है
+    let index = 0;
+    const params = new URLSearchParams(location.search);
+    const id = params.get('id') || morningDuas[0].id;
+    index = morningDuas.findIndex(m => m.id === id);
+    if(index === -1) index = 0;
+
+    const fullImg = document.getElementById('fullImg');
+
+    function renderImage() {
+      const item = morningDuas[index];
+      fullImg.src = item.img;
+      fullImg.alt = item.title.en;
+      history.replaceState(null, '', `?id=${item.id}`);
+    }
+
+    document.getElementById('next-img').onclick = ()=> { index = (index + 1) % morningDuas.length; renderImage(); };
+    document.getElementById('prev-img').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; renderImage(); };
+    
+    // Touch swipe (dua.html/script.js से कॉपी किया गया लॉजिक)
+    let startX = 0;
+    document.getElementById('fullViewer').addEventListener('touchstart', e=> startX = e.touches[0].clientX);
+    document.getElementById('fullViewer').addEventListener('touchend', e=>{
+      const endX = e.changedTouches[0].clientX;
+      if(endX < startX - 40) document.getElementById('next-img').click();
+      if(endX > startX + 40) document.getElementById('prev-img').click();
+    });
+
+    renderImage();
+  </script>
+</body>
+</html>
