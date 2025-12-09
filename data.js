@@ -6,13 +6,13 @@ const categories = [
       en: "Morning Duas",
       hi: "सुबह की दुआएं",
     },
-    img: "morning.jpg", // कैटेगरी का इमेज
+    img: "dua1.jpg", // कैटेगरी का इमेज
     description: {
       en: "Supplications for starting your day with faith and blessing.",
       hi: "दिन की शुरुआत ईमान और बरकत के साथ करने के लिए दुआएं।",
     },
     // यह लिंक बताएगा कि इस कैटेगरी की दुआएं किस पेज पर हैं
-    link: "duas.html?cat=morning" 
+    link: "dua.html?cat=morning" 
   },
   {
     id: "cat_evening",
@@ -20,12 +20,12 @@ const categories = [
       en: "Evening Duas",
       hi: "शाम की दुआएं",
     },
-    img: "evening.jpg", 
+    img: "dua2.jpg", 
     description: {
       en: "Prayers to seek protection and rest at the end of the day.",
       hi: "दिन के अंत में हिफाज़त और सुकून की दुआएं।",
     },
-    link: "duas.html?cat=evening"
+    link: "dua.html?cat=evening"
   }
 ];
 
