@@ -1,4 +1,37 @@
 // data.js
+const categories = [
+  {
+    id: "cat_morning",
+    title: {
+      en: "Morning Duas",
+      hi: "सुबह की दुआएं",
+    },
+    img: "morning.jpg", // कैटेगरी का इमेज
+    description: {
+      en: "Supplications for starting your day with faith and blessing.",
+      hi: "दिन की शुरुआत ईमान और बरकत के साथ करने के लिए दुआएं।",
+    },
+    // यह लिंक बताएगा कि इस कैटेगरी की दुआएं किस पेज पर हैं
+    link: "duas.html?cat=morning" 
+  },
+  {
+    id: "cat_evening",
+    title: {
+      en: "Evening Duas",
+      hi: "शाम की दुआएं",
+    },
+    img: "evening.jpg", 
+    description: {
+      en: "Prayers to seek protection and rest at the end of the day.",
+      hi: "दिन के अंत में हिफाज़त और सुकून की दुआएं।",
+    },
+    link: "duas.html?cat=evening"
+  }
+];
+
+// ... (बाकी morningDuas डेटा वैसा ही रहेगा)
+
+// data.js
 const morningDuas = [
   {
     id: "md1",
