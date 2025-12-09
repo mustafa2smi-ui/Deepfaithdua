@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="Morning Duas in Arabic, Hindi, Urdu and English — Deep Faith Dua Gallery">
 </head>
+  <!--
 <body>
   <header class="site-header">
     <div class="menu">☰</div>
@@ -37,3 +38,35 @@
   </script>
 </body>
 </html>
+  -->
+  <body>
+  <header class="site-header">
+    <h1>Best Faith Dua Gallery</h1> 
+  </header>
+
+  <main class="gallery" id="gallery"></main>
+
+  <script src="data.js"></script>
+  <script>
+    const g = document.getElementById('gallery');
+    
+    // अब हम categories ऐरे पर लूप चलाएंगे
+    categories.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'card category-card'; // एक नई क्लास जोड़ सकते हैं
+      card.innerHTML = `
+        <a href="${item.link}" class="card-link"> 
+          <img src="${item.img}" loading="lazy" alt="${item.title.en}">
+          <div class="card-title">${item.title.en}</div>
+          <div class="card-count">${item.description.en}</div>
+        </a>`;
+      g.appendChild(card);
+    });
+    
+    // ध्यान दें: अगर आप 'duas.html' नहीं बना रहे हैं, 
+    // तो link को सीधे 'index.html?cat=morning' करके 
+    // इस पेज पर फ़िल्टरिंग करनी पड़ेगी।
+  </script>
+</body>
+</html>
+
