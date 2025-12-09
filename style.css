@@ -19,3 +19,52 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neu
 .actions{display:flex;gap:8px;margin-top:10px}
 .actions button, .actions a{flex:1;padding:10px;border-radius:8px;border:none;text-decoration:none;text-align:center;background:var(--primary);color:#fff;font-weight:600}
 @media(min-width:700px){.card{width:30%}}
+header {
+  background:#004d40;
+  text-align:center;
+  padding:10px;
+  color:#fff;
+  font-size:22px;
+  font-weight:bold;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.category-list {
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.category-card {
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  text-align:center;
+  font-weight:bold;
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.category-card:hover {
+  transform:scale(1.05);
+  background:#faf2cc;
+}
+
+/* Full Image Open Mode */
+#fullImageModal {
+  display:none;
+  justify-content:center;
+  align-items:center;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.85);
+}
+
+#fullImageModal img {
+  width:90%;
+  max-height:90vh;
+  border-radius:10px;
+}
