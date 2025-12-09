@@ -108,7 +108,22 @@ document.getElementById('shareBtn').onclick = async () => {
 };
 
 render();
+// ========== Category Grid Load ==========
+window.addEventListener("DOMContentLoaded", () => {
+    let categoryList = document.getElementById("categoryList");
+    if (!categoryList) return;
 
+    Object.keys(duaData).forEach(cat => {
+        let card = document.createElement("div");
+        card.className = "category-card";
+        card.innerText = cat.toUpperCase();
+        card.onclick = () => {
+            localStorage.setItem("selectedCategory", cat);
+            window.location.href = "dua.html";
+        };
+        categoryList.appendChild(card);
+    });
+});
 
 // ============= Dua Viewer Script (Universal for all Categories) =============
 /*
