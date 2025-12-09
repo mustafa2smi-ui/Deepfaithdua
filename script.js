@@ -30,7 +30,9 @@ function render() {
   pageTitle.innerText = item.title.en;
 
   downloadBtn.href = item.img;
-  openPage.href = item.img;
+  /*openPage.href = item.img;*/
+  openPage.href = `imageviewer.html?id=${item.id}`; // एक नया पेज बनाएँगे
+
 
   // Update URL (so share link contains correct id)
   history.replaceState(null, '', `?id=${item.id}`);
@@ -52,7 +54,7 @@ function render() {
 
 document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };
 document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };
-
+/*
 // Touch swipe
 let startX = 0;
 document.querySelector('.viewer').addEventListener('touchstart', e=> startX = e.touches[0].clientX);
@@ -61,6 +63,40 @@ document.querySelector('.viewer').addEventListener('touchend', e=>{
   if(endX < startX - 40) document.getElementById('next').click();
   if(endX > startX + 40) document.getElementById('prev').click();
 });
+*/
+// script.js (नया और सुधारित)
+let startX = 0;
+let startY = 0; // Y-axis मूवमेंट को ट्रैक करने के लिए
+
+document.querySelector('.viewer').addEventListener('touchstart', e=> {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY; // Y-कोऑर्डिनेट को स्टोर करें
+});
+
+document.querySelector('.viewer').addEventListener('touchend', e=>{
+  const endX = e.changedTouches[0].clientX;
+  const endY = e.changedTouches[0].clientY; // Y-कोऑर्डिनेट को प्राप्त करें
+  
+  // X और Y अक्षों पर विस्थापन (displacement) की गणना करें
+  const deltaX = endX - startX;
+  const deltaY = endY - startY;
+
+  // तय करें कि यह वास्तव में क्षैतिज स्वाइप था या स्क्रॉल
+  // Swipe तभी ट्रिगर होगा जब X-movement 40px से ज़्यादा हो 
+  // AND X-movement, Y-movement से 2 गुना ज़्यादा हो (यानी स्क्रॉल नहीं है)
+  const isHorizontalSwipe = Math.abs(deltaX) > 40 && Math.abs(deltaX) > 2 * Math.abs(deltaY);
+
+  if (isHorizontalSwipe) {
+      if (deltaX < 0) {
+          // Leftward swipe (Next)
+          document.getElementById('next').click();
+      } else {
+          // Rightward swipe (Prev)
+          document.getElementById('prev').click();
+      }
+  }
+});
+
 /*
 let startX = 0;
 let startY = 0;
