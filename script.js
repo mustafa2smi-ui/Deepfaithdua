@@ -13,7 +13,7 @@ const descHi = document.getElementById('descHi');
 const descUr = document.getElementById('descUr');
 const descAr = document.getElementById('descAr');
 const explainEn = document.getElementById('explainEn');
-const pageTitle = document.getElementById('pageTitle');
+/* const pageTitle = document.getElementById('pageTitle');*/
 const downloadBtn = document.getElementById('downloadBtn');
 const openPage = document.getElementById('openPage');
 
@@ -27,7 +27,7 @@ function render() {
   descUr.innerText = item.desc.ur;
   descAr.innerText = item.desc.ar;
   explainEn.innerText = item.explain.en;
-  pageTitle.innerText = item.title.en;
+  /* pageTitle.innerText = item.title.en; */
 
   downloadBtn.href = item.img;
   /*openPage.href = item.img;*/
