@@ -16,6 +16,14 @@ const explainEn = document.getElementById('explainEn');
 /* const pageTitle = document.getElementById('pageTitle');*/
 const downloadBtn = document.getElementById('downloadBtn');
 const openPage = document.getElementById('openPage');
+// script.js में सबसे ऊपर
+const menuToggle = document.getElementById('menuToggle');
+const mainMenu = document.getElementById('mainMenu');
+
+menuToggle.addEventListener('click', () => {
+    // .show क्लास को टॉगल करें
+    mainMenu.classList.toggle('show');
+});
 
 function render() {
   const item = morningDuas[index];
@@ -52,8 +60,23 @@ function render() {
   setMeta('og:image', location.origin + '/' + item.img);
 }
 
-document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };
-document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };
+/*document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };*/
+/*document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };*/
+document.getElementById('next').onclick = ()=> { 
+    if (index < duasArray.length - 1) { // अगर यह आखिरी दुआ नहीं है
+        index++; 
+        render(); 
+    } 
+    // अगर यह आखिरी दुआ है, तो कुछ न करें
+};
+document.getElementById('prev').onclick = ()=> { 
+    if (index > 0) { // अगर यह पहली दुआ नहीं है
+        index--; 
+        render(); 
+    } 
+    // अगर यह पहली दुआ है, तो कुछ न करें
+};
+
 /*
 // Touch swipe
 let startX = 0;
