@@ -68,3 +68,43 @@ header {
   max-height:90vh;
   border-radius:10px;
 }
+/* मेनू आइकन को हेडर में राइट साइड पर रखें */
+.hamburger-icon {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute; /* header में सही जगह रखने के लिए */
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* मेनू को डिफ़ॉल्ट रूप से छिपा दें */
+#mainMenu {
+    display: none; 
+    background-color: #f9f9f9; /* हल्का बैकग्राउंड */
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* जब JS द्वारा .show क्लास जोड़ी जाए तो दिखाएं */
+#mainMenu.show {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 10; /* सुनिश्चित करें कि यह बाकी सामग्री के ऊपर रहे */
+}
+
+#mainMenu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#mainMenu li a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
