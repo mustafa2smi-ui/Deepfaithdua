@@ -17,7 +17,7 @@ const explainEn = document.getElementById('explainEn');
 const downloadBtn = document.getElementById('downloadBtn');
 const openPage = document.getElementById('openPage');
 // script.js में सबसे ऊपर
-const menuToggle = document.getElementById('menuToggle');
+const menuBtn = document.getElementById('menuBtn');
 const mainMenu = document.getElementById('mainMenu');
 
 menuToggle.addEventListener('click', () => {
@@ -63,7 +63,7 @@ function render() {
 /*document.getElementById('next').onclick = ()=> { index = (index + 1) % morningDuas.length; render(); };*/
 /*document.getElementById('prev').onclick = ()=> { index = (index - 1 + morningDuas.length) % morningDuas.length; render(); };*/
 document.getElementById('next').onclick = ()=> { 
-    if (index < duasArray.length - 1) { // अगर यह आखिरी दुआ नहीं है
+    if (index < morningDuas.length - 1) { // अगर यह आखिरी दुआ नहीं है
         index++; 
         render(); 
     } 
