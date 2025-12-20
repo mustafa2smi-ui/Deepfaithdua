@@ -26,7 +26,7 @@ const categories = [
       hi: "दिन के अंत में हिफाज़त और सुकून की दुआएं।",
     },
     link: "dua.html?cat=evening"
-  }
+  },
   // data.js ke categories array mein ise add karein
 {
   id: "cat_namaz",
