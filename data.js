@@ -27,6 +27,20 @@ const categories = [
     },
     link: "dua.html?cat=evening"
   }
+  // data.js ke categories array mein ise add karein
+{
+  id: "cat_namaz",
+  title: {
+    en: "After Namaz Duas",
+    hi: "नमाज़ के बाद की दुआएं",
+  },
+  img: "images/categories/namaz_bg.jpg", // Nayi image ka path
+  description: {
+    en: "Beautiful supplications to recite after completing your prayers.",
+    hi: "नमाज़ मुकम्मल करने के बाद पढ़ी जाने वाली खूबसूरत दुआएं।",
+  },
+  link: "dua.html?cat=namaz" // Is par dhyan dein (cat=namaz)
+}
 ];
 
 // ... (बाकी morningDuas डेटा वैसा ही रहेगा)
@@ -159,20 +173,7 @@ const morningDuas = [
     explain: { en: "Short dua to ask Allah for productive and blessed results.", hi: "फलदायी और बरकत भरे परिणामों के लिए छोटी दुआ।", ur: "مفید اور بابرکت نتائج کے لئے مختصر دعا۔", ar: "دعاء قصيرة لطلب نتائج مثمرة ومباركة." }
   }
 ];
-// data.js ke categories array mein ise add karein
-{
-  id: "cat_namaz",
-  title: {
-    en: "After Namaz Duas",
-    hi: "नमाज़ के बाद की दुआएं",
-  },
-  img: "images/categories/namaz_bg.jpg", // Nayi image ka path
-  description: {
-    en: "Beautiful supplications to recite after completing your prayers.",
-    hi: "नमाज़ मुकम्मल करने के बाद पढ़ी जाने वाली खूबसूरत दुआएं।",
-  },
-  link: "dua.html?cat=namaz" // Is par dhyan dein (cat=namaz)
-}
+
 
 const namazDuas = [
   {
@@ -181,6 +182,6 @@ const namazDuas = [
     title: { en: "Ayatul Kursi", hi: "आयतुल कुर्सी", ur: "آیت الکرسی", ar: "آية الكرسي" },
     desc: { en: "To be recited after every Farz Namaz.", hi: "हर फर्ज़ नमाज़ के बाद पढ़ें।", ur: "ہر فرض نماز کے بعد پڑھیں۔", ar: "تقرأ بعد كل صلاة فريضة." },
     explain: { en: "Reciting Ayatul Kursi after Namaz is a source of great blessing and protection.", hi: "नमाज़ के बाद आयतुल कुर्सी पढ़ना बरकत और हिफाज़त का ज़रिया है।", ur: "نماز کے بعد آیت الکرسی پڑھنا برکت اور حفاظت کا ذریعہ ہے۔", ar: "قراءة آية الكرسی بعد الصلاة مصدر للبركة والحماية." }
-  },
+  }
   // Aur bhi duas yahan add kar sakte hain...
 ];
