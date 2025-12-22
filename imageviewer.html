@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Image Viewer — Deep Faith Dua Gallery</title>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; font-family: sans-serif; }
+    #fullViewer {
+      display: flex; align-items: center; justify-content: center; height: 100vh;
+      position: relative;
+    }
+    #fullImg {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+    }
+    .nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
+      background: rgba(255,255,255,0.2); border: none; color: #fff;
+      padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px;
+    }
+    #prev-img { left: 10px; }
+    #next-img { right: 10px; }
+    .back-link {
+      position: absolute; top: 20px; left: 20px; z-index: 20;
+      color: #fff; text-decoration: none; background: rgba(46, 125, 50, 0.8);
+      padding: 8px 15px; border-radius: 20px; font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <a href="javascript:history.back()" class="back-link">← Back</a>
+
+  <div id="fullViewer">
+    <button id="prev-img" class="nav-btn">❮</button>
+    <img id="fullImg" src="" alt="Dua Image" loading="eager">
+    <button id="next-img" class="nav-btn">❯</button>
+  </div>
+  
+  <script src="data.js"></script>
+  <script>
+    // 1. URL se ID aur Category nikalna
+    const params = new URLSearchParams(location.search);
+    const catParam = params.get('cat') || 'morning'; 
+    const idParam = params.get('id');
+
+    // 2. allDuas se sahi list nikalna (Dynamic)
+    let duaList = allDuas[catParam] || allDuas['morning'];
+    
+    // 3. Index set karna
+    let index = 0;
+    if(idParam) {
+        index = duaList.findIndex(m => m.id === idParam);
+        if(index === -1) index = 0;
+    }
+
+    const fullImg = document.getElementById('fullImg');
+
+    // 4. Render Function
+    function renderImage() {
+      const item = duaList[index];
+      if(item) {
+          fullImg.src = item.img;
+          fullImg.alt = item.title.en;
+          // URL update taaki share karne par wahi image khule
+          history.replaceState(null, '', `?cat=${catParam}&id=${item.id}`);
+      }
+    }
+
+    // 5. Navigation
+    document.getElementById('next-img').onclick = ()=> { 
+        if(index < duaList.length - 1) {
+            index++; 
+            renderImage(); 
+        }
+    };
+    document.getElementById('prev-img').onclick = ()=> { 
+        if(index > 0) {
+            index--; 
+            renderImage(); 
+        }
+    };
+    
+    // 6. Swipe Logic
+    let startX = 0;
+    document.getElementById('fullViewer').addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    document.getElementById('fullViewer').addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      if(endX < startX - 50) document.getElementById('next-img').click();
+      if(endX > startX + 50) document.getElementById('prev-img').click();
+    });
+
+    // Initial Load
+    renderImage();
+  </script>
+</body>
+</html>
